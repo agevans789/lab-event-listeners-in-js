@@ -4,7 +4,7 @@
 function changeBackgroundColor() {
   // Implement the function to change background color
   const background = document.body;
-  const colors = ["red", "green", "yellow", "blue"];
+  const colors = ["rgb(255, 0, 0)", "rgb(0, 255, 0)", "rgb(0, 255, 255)", "rgb(0, 0, 255)"];
   const currentIndex = colors.indexOf(background.style.backgroundColor);
   let nextIndex = (currentIndex + 1) % colors.length;
   background.style.backgroundColor = colors[nextIndex];
@@ -15,8 +15,8 @@ function resetBackgroundColor() {
   // Implement the function to reset background color
   const background = document.body;
   const currentColor = background.style.backgroundColor;
-  if (currentColor !== "white") {
-    background.style.backgroundColor = "white";
+  if (currentColor !== "") {
+    background.style.backgroundColor = "";
   };
 };
 
@@ -49,10 +49,9 @@ function setupEventListeners() {
     button.addEventListener('click', changeBackgroundColor);
   };
   // Attach event listener to reset background color when the body is double-clicked
-  const body = document.body;
-  if (body) {
-    body.addEventListener('dblclick', resetBackgroundColor);
-  };
+
+    document.body.addEventListener('dblclick', resetBackgroundColor);
+  
 
   // Attach event listener to display key pressed when a key is pressed down
   document.addEventListener('keydown', displayKeyPress)
