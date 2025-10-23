@@ -27,7 +27,7 @@ function displayKeyPress(event) {
   // Implement the function to display key pressed
   const displayKeyPress = document.getElementById("keyPressDisplay");
   if (displayKeyPress) {
-    displayKeyPress.textContent = event.key
+    displayKeyPress.textContent = `Key pressed: ${event.key}`;
   };
 };
 
@@ -38,7 +38,7 @@ function displayUserInput() {
   // Implement the function to display user input
   const userInput = document.getElementById("textInput").value;
   const outputDisplay = document.getElementById("textInputDisplay");
-  outputDisplay.textContent = userInput;
+  outputDisplay.textContent = `You typed: ${userInput}`;
 };
 
 // Attach Event Listeners
@@ -49,16 +49,16 @@ function setupEventListeners() {
     button.addEventListener('click', changeBackgroundColor);
   };
   // Attach event listener to reset background color when the body is double-clicked
-
-    document.body.addEventListener('dblclick', resetBackgroundColor);
+  const resetColorButton = document.getElementById('resetColorButton');
+  resetColorButton.addEventListener('dblclick', resetBackgroundColor);
   
 
   // Attach event listener to display key pressed when a key is pressed down
-  document.addEventListener('keydown', displayKeyPress)
+  document.addEventListener('keydown', displayKeyPress);
 
   // Attach event listener to display user input in real-time as they type
-  document.getElementById('textInput').addEventListener('input', displayUserInput)
-}
+  document.getElementById('textInput').addEventListener('input', displayUserInput);
+};
 
 // Initialize event listeners when the DOM is loaded
 if (typeof window !== 'undefined') {
